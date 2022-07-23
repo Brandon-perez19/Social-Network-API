@@ -37,5 +37,14 @@ const ThoughtsSchema = new Schema({
         default: Date.now,
         get: (createdAtVal) => dateFormat(createdAtVal)
     },
-    replies: [ReactionSchema]
+    reactions: [ReactionSchema]
 })
+
+ThoughtsSchema.virtual('reactionCount').get(function () {
+    return this.reactions.reduce((total, reaction) => total + reaction.length + 1, 0);
+})
+
+//creates thought model 
+const Thoughts = model('Thoughts', ThoughtsSchema)
+
+module.exports = Thoughts
