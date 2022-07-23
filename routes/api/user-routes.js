@@ -19,3 +19,5 @@ router
 .get(getUserById)
 .put(updateUser)
 .delete(deleteUser)
+
+module.exports = router
