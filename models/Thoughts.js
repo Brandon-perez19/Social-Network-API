@@ -4,11 +4,13 @@ const dateFormat = require('../utils/dateFormat')
 const ReactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
+        default: () => new Types.ObjectId(),
+        required: true
     },
     reactionBody: {
         type: String,
-        required: true
+        required: true,
+        maxLength: 280
     },
     username: {
         type: String,
@@ -32,8 +34,10 @@ const ThoughtsSchema = new Schema({
         type: String,
         required: true,
         trim: true,
+        minLength: 1,
+        maxLength: 280
     },
-    createdBy: {
+    username: {
         type: String,
         required: true,
         trim: true
@@ -53,7 +57,7 @@ const ThoughtsSchema = new Schema({
 })
 
 ThoughtsSchema.virtual('reactionCount').get(function () {
-    return this.reactions.reduce((total, reaction) => total + reaction.length + 1, 0);
+    return this.reactions.length
 })
 
 //creates thought model 

@@ -9,15 +9,12 @@ const {
 } = require('../../controllers/thoughts-controller')
 const router = require('express').Router();
 
-//grabs all thoughts
 //api/thoughts/
 router
 .route('/')
 .get(getAllThoughts)
 
-//grabs single thought by id
-//updates a thought by its id
-//deletes a thought by its id
+
 // api/thoughts/:id
 router
 .route('/:thoughtsId')
