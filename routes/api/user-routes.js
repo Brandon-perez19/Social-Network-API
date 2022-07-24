@@ -20,4 +20,10 @@ router
 .put(updateUser)
 .delete(deleteUser)
 
+router
+.route('/:userId/friends/:friendId')
+.post()
+.delete()
+
+
 module.exports = router

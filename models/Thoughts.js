@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose')
+const dateFormat = require('../utils/dateFormat')
 
 const ReactionSchema = new Schema({
     reactionId: {
@@ -19,7 +20,6 @@ const ReactionSchema = new Schema({
         get: (createdAtVal) => dateFormat(createdAtVal)
     },
 })
-
 
 const ThoughtsSchema = new Schema({
     thoughtText: {
