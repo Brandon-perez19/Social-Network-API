@@ -43,7 +43,7 @@ router
 //removes a reaction based on thoughts id and reaction id
 // api/thoughts/:id/:id
 router
-.route(':userId/:thoughtsId/:reactionId')
+.route('/:thoughtsId/:reactionId')
 .delete(removeReaction)
 
 module.exports = router
